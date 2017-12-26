@@ -1,0 +1,9 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: metacritic-score
+  namespace: metacritic
+spec:
+  backend:
+    serviceName: metacritic-service
+    servicePort: 1234

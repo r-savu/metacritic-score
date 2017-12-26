@@ -1,0 +1,53 @@
+name:                metacritic-score
+version:             0.1.0.0
+-- synopsis:
+-- description:
+homepage:            https://github.com/r-savu/metacritic-score#readme
+license:             BSD3
+license-file:        LICENSE
+author:              Robert Savu
+maintainer:          savurobert89@gmail.com
+copyright:           MIT
+category:            Web
+build-type:          Simple
+extra-source-files:  README.md
+cabal-version:       >=1.10
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Types
+                     , Core
+                     , Server
+  build-depends:       base
+                     , aeson
+                     , servant-server
+                     , wai
+                     , wai-logger
+                     , tagsoup
+                     , mtl
+                     , HTTP
+                     , warp
+  default-language:    Haskell2010
+
+executable metacritic-score
+  hs-source-dirs:      app
+  main-is:             Main.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base
+                     , metacritic-score
+  default-language:    Haskell2010
+
+test-suite metacritic-score-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+  build-depends:       base
+                     , metacritic-score
+                     , tagsoup
+                     , HUnit
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  default-language:    Haskell2010
+
+source-repository head
+  type:     git
+  location: https://github.com/r-savu/metacritic-score

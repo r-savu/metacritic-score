@@ -1,0 +1,21 @@
+kind: Deployment
+apiVersion: apps/v1beta1
+metadata:
+  name: metacritic-score
+  namespace: metacritic
+  labels:
+    name: metacritic
+spec:
+  replicas: 2
+  template:
+    metadata:
+      name: metacritic-pod
+      labels:
+        name: metacritic
+    spec:
+      containers:
+      - name: metacritic-score
+        image: rsavu/metacritic-score
+        command: ["/opt/server/build/metacritic-score/metacritic-score"]
+        ports:
+        - containerPort: 1234

@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: metacritic-service
+  namespace: metacritic
+  labels:
+    name: metacritic
+spec:
+  type: NodePort
+  selector:
+    name: metacritic
+  ports:
+  - protocol: TCP
+    port: 1234
