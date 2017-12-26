@@ -1,6 +1,10 @@
+sudo: required
+
 addons:
   packages:
     - docker-ce
 
 script:
+  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
   - docker build -t "rsavu/metacritic-score:latest" .
+  - docker push "rsavu/metacritic-score:latest"
