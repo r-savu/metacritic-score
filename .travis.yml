@@ -1,0 +1,6 @@
+addons:
+  packages:
+    - docker-ce
+
+script:
+  - docker build -t "rsavu/metacritic-score:latest" .
